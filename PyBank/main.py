@@ -1,6 +1,8 @@
 import os
 import csv
 
+###### FINAL VERSION
+
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
 profit = 0
@@ -8,7 +10,6 @@ loss = 0
 amount = 0
 total = 0
 months = 0
-profit_list = []
 
 prev_month = 0
 inc_dec = 0

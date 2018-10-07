@@ -1,6 +1,8 @@
 import os
 import csv
 
+###### FINAL VERSION
+
 csvpath = os.path.join('Resources', 'election_data.csv')
 
 candidate = []
@@ -61,14 +63,18 @@ with open(csvpath, newline="") as csvfile:
             percent = round(percent,4)
             print(f"{name_aux} : {percent} % ( {votes_candidate} )")
 
-            # results = {{name_aux} : {percent} % ( {votes_candidate} )}
-            results = {(name_aux) : (percent), (votes_candidate)}
-            # results.update({{name_aux} : {percent} % ( {votes_candidate} )})
-            
             i = i + 1
 
             csvwriter.writerow([f"{name_aux} : {percent} % ( {votes_candidate} )"])
+        
 
+    #   Open the file using "write" mode. Specify the variable to hold the contents
+        with open(output_path, 'r+', newline='') as csvfile:
+
+            csvwriter.writerow([f"----------------------------"])
+            csvwriter.writerow([f"Winner: {winner_name}"])
 
     print(f"----------------------------")
     print(f"Winner: {winner_name}")
+
+    
