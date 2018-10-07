@@ -60,6 +60,11 @@ with open(csvpath, newline="") as csvfile:
 
             percent = round(percent,4)
             print(f"{name_aux} : {percent} % ( {votes_candidate} )")
+
+            # results = {{name_aux} : {percent} % ( {votes_candidate} )}
+            results = {(name_aux) : (percent), (votes_candidate)}
+            # results.update({{name_aux} : {percent} % ( {votes_candidate} )})
+            
             i = i + 1
 
             csvwriter.writerow([f"{name_aux} : {percent} % ( {votes_candidate} )"])

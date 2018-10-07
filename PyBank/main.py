@@ -52,6 +52,11 @@ with open(csvpath, newline="") as csvfile:
     
     # Calculate the avarage dividing the total of changes by the number of changes
     avarage = sum_inc_dec / (months - 1)
+    
+    avarage = round(avarage,2)
+    total = round(total)
+    great_inc = round(great_inc)
+    great_dec = round(great_dec)
 
     print(f"Financial Analysis")
     print(f"----------------------------")
