@@ -8,6 +8,7 @@ loss = 0
 amount = 0
 total = 0
 months = 0
+profit_list = []
 
 prev_month = 0
 inc_dec = 0
@@ -24,7 +25,6 @@ with open(csvpath, newline="") as csvfile:
     
     for row in csv_reader:
         amount = float(row[1])
-
         if amount > 0:
             profit = profit + amount
         else:
@@ -67,8 +67,12 @@ output_path = os.path.join ("Financial_Analysis.csv")
 with open(output_path, 'w', newline='') as csvfile:
 
     # Initialize csv.writer
-    csvwriter = csv.writer(csvfile, delimiter=',')
+    csvwriter = csv.writer(csvfile)
 
-    # Write the second row
-    csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
-
+    csvwriter.writerow(["Financial Analysis"])
+    csvwriter.writerow(["----------------------------"])
+    csvwriter.writerow([f"Total Months: {months}"])
+    csvwriter.writerow([f"Total: $ {total}"])
+    csvwriter.writerow([f"Average Change: $ {avarage}"])
+    csvwriter.writerow([f"Greatest Increase in Profits: {month_row_inc} ($ {great_inc})"])
+    csvwriter.writerow([f"Greatest Decrease in Profits: {month_row_dec} ($ {great_dec})"])
